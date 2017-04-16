@@ -8,9 +8,11 @@ import {RouterModule, Routes} from "@angular/router";
 import { PreviewComponent } from './components/preview/preview.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NofoundComponent } from './components/nofound/nofound.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 const appRoutes: Routes = [
   { path: 'preview', component: PreviewComponent },
+  { path: 'registration', component: RegistrationComponent},
   { path: '**', component: NofoundComponent}
 ];
 
@@ -19,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     PreviewComponent,
     HeaderComponent,
-    NofoundComponent
+    NofoundComponent,
+    RegistrationComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

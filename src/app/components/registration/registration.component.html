@@ -1,0 +1,29 @@
+<div class="registration-title">Регистрация</div>
+
+<div class="registration-field">
+  Имя(Введите ваше имя):<input [(ngModel)]="person.firstName" (keyup)="errorMessage = ''">
+</div>
+<div class="registration-field">
+  Фамилия(Введите пароль): <input [(ngModel)]="person.lastName" (keyup)="errorMessage = ''">
+</div>
+<div class="registration-field">
+  логин(Придумайте логин, с помощью которого вы будете заходить в систему):
+  <input [(ngModel)]="person.login" (keyup)="errorMessage = ''">
+</div>
+<div class="registration-field">
+  пароль(Не сообщайте ваш пароль никому. Он будет нужен для доступа в систему):
+  <input [(ngModel)]="person.password" (keyup)="errorMessage = ''">
+</div>
+
+<div class="registration-bottom">
+  <div *ngIf="errorMessage">
+    <div class="error-message">
+      {{errorMessage}}
+    </div>
+  </div>
+  <button class="button" (click)="registry()">
+    Зарегистрироваться
+  </button>
+</div>
+
+
