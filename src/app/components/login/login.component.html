@@ -1,0 +1,18 @@
+<div style="display: table; width: 100%">
+  <div class="login">
+    <div class="login-field">
+      логин:
+      <input [(ngModel)]="user.login" (keyup)="errorMessage = ''">
+    </div>
+    <div class="login-field">
+      пароль:
+      <input [(ngModel)]="user.password" (keyup)="errorMessage = ''" type="password">
+    </div>
+    <div style="text-align: center;">
+      <button class="button" (click)="login()">
+        Войти
+     </button>
+    </div>
+  </div>
+</div>
+

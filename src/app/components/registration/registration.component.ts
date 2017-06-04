@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Person} from "./Person";
-import {Http} from "@angular/http";
+import {Component, OnInit} from '@angular/core';
+import {Person} from './Person';
+import {Http} from '@angular/http';
 
 @Component({
   selector: 'app-registration',
@@ -9,7 +9,8 @@ import {Http} from "@angular/http";
 })
 export class RegistrationComponent implements OnInit {
   person = new Person();
-  errorMessage :string;
+  errorMessage: string;
+
   constructor(private http: Http) {
   }
 
@@ -28,9 +29,8 @@ export class RegistrationComponent implements OnInit {
           this.errorMessage = body.error;
           return;
         }
-    })
-      .catch(() => console.log('server registration error'))
-
+      })
+      .catch(() => console.log('server registration error'));
   }
 
 }

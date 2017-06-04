@@ -1,0 +1,28 @@
+<div>
+  <div *ngIf="testStage === Stages.prepare" style="position: absolute;top: 50%;">
+
+      Когда вы будете готовы нажмите пробел для старта или кнопку "Начать тест". Пройдите данный тест хотя бы 20 раз для
+      более точного определения
+
+    <div style="text-align: center;">
+      <button class="button" (click)="startEndTest()">
+        Начать тест
+      </button>
+
+
+    </div>
+  </div>
+  <div *ngIf="testStage === Stages.test" style="position: absolute;" [ngStyle]="positionStyle">
+    <svg class="circle" [ngClass]="direction" width="200" height="200">
+      <g fill="none"
+         stroke-width="15"
+         stroke-dasharray="250%">
+        <circle r="85" cx="100" cy="100"
+                stroke="crimson"/> <!-- Красная обводка без смещения --> -->
+      </g>
+    </svg>
+  </div>
+  <div *ngIf="testStage === Stages.postTest">
+    Выбирите направление
+  </div>
+</div>
