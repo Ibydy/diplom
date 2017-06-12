@@ -86,14 +86,18 @@ export class TestComponent implements OnInit {
     if (this.direction === direction) {
       const user = this.storageService.retrieve('user');
       if (user) {
-        user.testTime = this.testTimeMilliSeconds;
+        if (!user.testTime) {
+          user.testTime = [];
+        }
+        user.testTime = [this.testTimeMilliSeconds, ...user.testTime];
         this.http.post('http://localhost:3001/addResult', user)
           .forEach((response) => {
             const body = response.json();
-            alert(`Ваше время: ${this.testTimeMilliSeconds} .Результат был записан`);
+            this.storageService.store('user', body)
+            alert(`Ваше время реакции: ${this.testTimeMilliSeconds} мс.Результат был записан`);
           });
       } else {
-        alert(`Ваше время: ${this.testTimeMilliSeconds} .Результат не будет записан если вы не войдёте под своим аккаунтом`);
+        alert(`Ваше время реакции: ${this.testTimeMilliSeconds} мс.Результат не будет записан если вы не войдёте под своим аккаунтом`);
       }
       return;
     }

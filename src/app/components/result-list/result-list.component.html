@@ -1,0 +1,15 @@
+<div class="result">
+  ваш средний показатель:
+  <span class="result__currentResult">
+    {{average}} мс
+  </span>
+</div>
+<div class="resultList" *ngIf="user">
+  <div *ngFor="let time of user.testTime" class="resultList_item">
+   Ваше время: {{time}} мс
+  </div>
+</div>
+<div class="resultList" *ngIf="!user">
+  Вам надо войти для просмотра этой страницы
+</div>
+

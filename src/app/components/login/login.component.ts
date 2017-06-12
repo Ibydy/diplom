@@ -12,7 +12,7 @@ import {SessionStorageService} from 'ngx-webstorage';
 export class LoginComponent implements OnInit {
   user = new User();
 
-  constructor(private http: Http, private Router: Router, private storageService:SessionStorageService) {
+  constructor(private http: Http, private Router: Router, private storageService: SessionStorageService) {
   }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.http.post('http://localhost:3001/login', this.user)
       .forEach((response) => {
         const body = response.json();
-        this.storageService.store('user', this.user);
+        this.storageService.store('user', body);
         this.Router.navigateByUrl('/test');
       })
       .catch(this.showError);

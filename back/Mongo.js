@@ -29,16 +29,23 @@ class Mongo {
     const collection = this.db.collection('users');
     collection.findOne({login: user.login, password: user.password}, (err, result) => {
       if (result) {
-        callback({error: 'user already exist'});
+        callback(result);
         return;
       }
       onError()
     });
   }
+
   addResult(user, callback) {
     const collection = this.db.collection('users');
-    collection.updateOne({login: user.login, password: user.password},{'$set': {'testTime': user.testTime}})
-    // TODO create update
+    collection.updateOne({login: user.login, password: user.password},
+      {'$set': {'testTime': user.testTime}}, function (err, result) {
+        collection.findOne({login: user.login, password: user.password}, (err, result) => {
+          if (result) {
+            callback(result)
+          }
+        })
+      })
   }
 }
 

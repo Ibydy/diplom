@@ -12,12 +12,14 @@ import {NofoundComponent} from './components/nofound/nofound.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {LoginComponent} from './components/login/login.component';
 import {TestComponent} from './components/test/test.component';
+import {ResultListComponent} from './components/result-list/result-list.component';
 
 const appRoutes: Routes = [
   {path: 'preview', component: PreviewComponent},
   {path: 'registration', component: RegistrationComponent},
   {path: 'login', component: LoginComponent},
   {path: 'test', component: TestComponent},
+  {path: 'resultlist', component: ResultListComponent},
   {path: '**', component: NofoundComponent}
 ];
 
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     NofoundComponent,
     RegistrationComponent,
     LoginComponent,
-    TestComponent
+    TestComponent,
+    ResultListComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {SessionStorageService} from 'ngx-webstorage';
+import {User} from '../login/User';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent implements OnInit {
+  user: User;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private storageService: SessionStorageService) {
   }
 
+  ngOnInit() {
+    setInterval(() => {
+      this.user = this.storageService.retrieve('user'); // Fixme Don't do this on real application ever!!
+    }, 100);
+  }
+
+  logout = () => {
+    this.storageService.clear('user');
+  }
 }

@@ -6,14 +6,17 @@
     <a routerLink="/test">Тест</a>
   </div>
   <div class="header-link">
-    <a routerLink="/test">Тест</a>
+    <a routerLink="/resultlist">Показать мои результаты</a>
   </div>
   <div class="header-link header-link-registration">
     <div routerLink="/registration">
       регистрация
     </div>
-    <div routerLink="/login">
+    <div routerLink="/login" *ngIf="!user">
       войти
+    </div>
+    <div (click)="logout()" *ngIf="user">
+      выйти
     </div>
   </div>
 </div>
